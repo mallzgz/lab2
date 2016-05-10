@@ -78,3 +78,7 @@ task zip(type:Zip) {
 	filter { line -> line.startsWith('twitter.accessToken=') ? 'twitter.accessToken=<<ask Twitter for a key>>' : line }
 	filter { line -> line.startsWith('twitter.accessTokenSecret=') ? 'twitter.accessTokenSecret=<<ask Twitter for a key>>' : line }
 }
+
+task stage {
+    dependsOn build
+}
