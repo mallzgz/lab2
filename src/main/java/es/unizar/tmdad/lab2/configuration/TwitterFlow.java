@@ -26,14 +26,15 @@ import es.unizar.tmdad.lab2.service.TwitterLookupService;
 @IntegrationComponentScan
 @ComponentScan
 public class TwitterFlow {
-
+	
+	@Autowired
+	private TwitterLookupService twitterlookupService;
+	
 	@Bean
 	public DirectChannel requestChannel() {
 		return new DirectChannel();
 	}
-	
-	@Autowired
-	private TwitterLookupService twitterlookupService;
+
 
 	// Tercer paso
 	// Los mensajes se leen de "requestChannel" y se envian al método "sendTweet" del

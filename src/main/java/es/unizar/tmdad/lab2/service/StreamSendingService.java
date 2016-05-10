@@ -71,6 +71,10 @@ public class StreamSendingService {
 		//
 		// Crea un mensaje que envie un tweet a un único tópico destinatario
 		//
+		Map<String, Object> mapa = new HashMap<>();
+		mapa.put(MessageHeaders.CONTENT_TYPE, MimeTypeUtils.APPLICATION_JSON);
+		ops.convertAndSend("/queue/search/" + tweet.getFirstTarget(),
+				tweet.getTweet(),mapa);
 
 	}
 
